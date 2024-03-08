@@ -12,4 +12,4 @@ router.route("/").get(CoursesController.getAllCourses)
 router.route("/:courseId").get(CoursesController.getCourse )
 .patch(CoursesController.updateCourse)
 .delete( CoursesController.deleteCourse)
-module.exports=router
+module.exports=router    

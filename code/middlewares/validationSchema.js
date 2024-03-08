@@ -1,6 +1,6 @@
 
 const {body}=require("express-validator")
-const validationSchema=()=>{
+const validationSchema=(req,res)=>{
   console.log(  [
     body("title")
       .notEmpty()

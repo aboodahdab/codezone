@@ -5,23 +5,19 @@ console.log(Course)
 const getAllCourses=async(req,res) => {
   const courses=await Course.find()
       res.json(courses)
+
     }
-   // console.log(req.body)
-const addCourse=async(req, res) => {
 
-  console.log("kksk")
-  
-    const errors = validationResult(req);
+const addCourse=async (req, res) => {
+const errors = validationResult(req);
 
-    console.log("errors", errors);
+    
     if (!errors.isEmpty()) {
       return res.status(400).json({ msg: errors.array() });
     }
-    console.log(req.body)
-    const newCourse=   new Course({...req.body})
-    console.log(newCourse)
- await newCourse.save()
-    res.status(201).json(newCourse);
+    const newCourse= new Course(req.body)
+    await newCourse.save()
+    res.status(201).json(newCourse)
   }
 
  
@@ -49,6 +45,7 @@ const addCourse=async(req, res) => {
     courses = courses.filter((course) => course.id !== courseId);
     res.status(200).json({ seccess: true });
   }
+
   module.exports={
     getAllCourses 
     ,
