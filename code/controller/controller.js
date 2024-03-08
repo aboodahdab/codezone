@@ -11,7 +11,7 @@ const getAllCourses=async(req,res) => {
 const addCourse=async (req, res) => {
 const errors = validationResult(req);
 
-    
+    console.log("errors",errors)
     if (!errors.isEmpty()) {
       return res.status(400).json({ msg: errors.array() });
     }
