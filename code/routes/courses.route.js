@@ -7,7 +7,7 @@ console.log(CoursesController.addCourse)
 let router=express.Router()
 
 router.route("/").get(CoursesController.getAllCourses)
-.post(validationSchema,CoursesController.addCourse);
+.post(validationSchema(),CoursesController.addCourse);
 
 router.route("/:courseId").get(CoursesController.getCourse )
 .patch(CoursesController.updateCourse)
